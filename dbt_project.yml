@@ -12,7 +12,7 @@ profile: default # Put your profile here
 model-paths: ["models"]
 analysis-paths: ["analyses"]
 test-paths: ["data-tests"]
-seed-paths: ["seeds"]
+seed-paths: ["seeds", "jaffle-data"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 
@@ -27,9 +27,13 @@ vars:
 seeds:
   jaffle_shop:
     +schema: raw
+    +file_format: hudi
+    +location_root: s3://lakehouse-albert-us-west-2/demolake/    
 
 models:
   jaffle_shop:
+    +file_format: hudi
+    +location_root: s3://lakehouse-albert-us-west-2/demolake/    
     staging:
       +materialized: view
     marts:
