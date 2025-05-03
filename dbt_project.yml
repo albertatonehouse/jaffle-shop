@@ -35,6 +35,6 @@ models:
     +file_format: hudi
     +location_root: s3://lakehouse-albert-us-west-2/demolake/dbt_awong/
     staging:
-      +materialized: view
+      +materialized: incremental
     marts:
       +materialized: table
