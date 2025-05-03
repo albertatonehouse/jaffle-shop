@@ -29,11 +29,15 @@ seeds:
     +schema: dbt_raw
     +file_format: hudi
     +location_root: s3://lakehouse-albert-us-west-2/demolake/dbt_raw/
+    +tblproperties:
+      hudi.table.type: mor
 
 models:
   jaffle_shop:
     +file_format: hudi
     +location_root: s3://lakehouse-albert-us-west-2/demolake/dbt_awong/
+    +tblproperties:
+      hudi.table.type: mor
     staging:
       +materialized: incremental
     marts:
